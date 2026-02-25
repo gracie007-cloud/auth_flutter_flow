@@ -1,28 +1,25 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 class LoginButton extends StatelessWidget {
-  final VoidCallback onPressed;
-  LoginButton({this.onPressed});
-  
-	@override
+  final VoidCallback? onPressed;
+  const LoginButton({super.key, this.onPressed});
+
+  @override
   Widget build(BuildContext context) {
-		return new Container(
-			margin: const EdgeInsets.symmetric(vertical: 12.0),
-			child: new Material(
-				elevation: 5.0,
-				child: new MaterialButton(
-					color: Theme.of(context).primaryColor,
-					height: 42.0,
-					child: new Text(
-						'Log In',
-						style: new TextStyle(
-							color: Colors.white
-						)
-					),
-					onPressed: onPressed
-				)
-			)
-		);
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 12.0),
+      child: Material(
+        elevation: 5.0,
+        child: MaterialButton(
+          color: Theme.of(context).primaryColor,
+          height: 42.0,
+          onPressed: onPressed,
+          child: const Text(
+            'Log In',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ),
+    );
   }
-	
 }

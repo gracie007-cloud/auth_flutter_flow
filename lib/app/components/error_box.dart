@@ -1,46 +1,38 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 class ErrorBox extends StatelessWidget {
-	final bool isError;
-	final String errorText;
-	ErrorBox({this.isError, this.errorText});
-	
+  final bool? isError;
+  final String? errorText;
+  const ErrorBox({super.key, this.isError, this.errorText});
+
   @override
   Widget build(BuildContext context) {
-	  if(isError) {
-		  return new Container(
-			  child: new Column(
-				  children: <Widget>[
-					  new Image.asset('lib/app/assets/logo.png'),
-					
-					  new Container(
-						  decoration: new BoxDecoration(
-							  border: const Border(
-								  top: const BorderSide(width: 1.0, color: const Color(0xFFFF3F3F)),
-								  left: const BorderSide(width: 1.0, color: const Color(0xFFFF3F3F)),
-								  right: const BorderSide(width: 1.0, color: const Color(0xFFFF3F3F)),
-								  bottom: const BorderSide(width: 1.0, color: const Color(0xFFFF3F3F)),
-							  ),
-							  borderRadius: new BorderRadius.circular(32.0)
-						  ),
-						  padding: const EdgeInsets.symmetric(vertical: 14.0),
-						  margin: const EdgeInsets.only(bottom: 20.0),
-						  child: new Center(
-							  child: new Text(
-								  errorText ?? '',
-								  style: new TextStyle(color: Colors.red.shade500),
-							  ),
-						  )
-					  ),
-				
-				  ] // children
-			  ),
-		  );
-	  } else {
-		  return new Container(
-			  child: new Image.asset('lib/app/assets/logo.png')
-		  );
-	  }
+    if (isError == true) {
+      return Container(
+        child: Column(
+          children: <Widget>[
+            Image.asset('lib/app/assets/logo.png'),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(width: 1.0, color: const Color(0xFFFF3F3F)),
+                borderRadius: BorderRadius.circular(32.0),
+              ),
+              padding: const EdgeInsets.symmetric(vertical: 14.0),
+              margin: const EdgeInsets.only(bottom: 20.0),
+              child: Center(
+                child: Text(
+                  errorText ?? '',
+                  style: TextStyle(color: Colors.red.shade500),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    } else {
+      return Container(
+        child: Image.asset('lib/app/assets/logo.png'),
+      );
+    }
   }
-	
 }
